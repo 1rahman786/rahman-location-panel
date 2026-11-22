@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RAHMAN LOCATION PANEL</title>
+<style>
+body{background:#080b12;color:white;text-align:center;font-family:Arial;padding:30px}
+h1{color:#00ff99}
+button{background:#00cc88;color:black;padding:16px;border:0;border-radius:10px;font-size:18px}
+p{word-break:break-all}
+</style>
+</head>
+<body>
+<h1>RAHMAN LOCATION PANEL</h1>
+<p>Secure Location Sharing</p>
+<button onclick="share()">SHARE MY LOCATION</button>
+<p id="result"></p>
+<script>
+function share(){
+if(!navigator.geolocation){result.innerText="Not supported";return;}
+result.innerText="Waiting for permission...";
+navigator.geolocation.getCurrentPosition(p=>{
+result.innerText="Latitude: "+p.coords.latitude+"\nLongitude: "+p.coords.longitude;
+},e=>result.innerText="Permission denied or location unavailable");
+}
+</script>
+</body>
+</html>
